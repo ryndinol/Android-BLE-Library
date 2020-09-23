@@ -180,10 +180,12 @@ public abstract class BleManager implements ILogger {
 		this.requestHandler = getGattCallback();
 		this.requestHandler.init(this, handler);
 
-		ContextCompat.registerReceiver(context, mPairingRequestBroadcastReceiver,
+        if (false) {
+		    ContextCompat.registerReceiver(context, mPairingRequestBroadcastReceiver,
 				// BluetoothDevice.ACTION_PAIRING_REQUEST
 				new IntentFilter("android.bluetooth.device.action.PAIRING_REQUEST"),
 				ContextCompat.RECEIVER_EXPORTED);
+	    }
 	}
 
 	/**
@@ -304,7 +306,7 @@ public abstract class BleManager implements ILogger {
 	 * close the connection.
 	 */
 	public void close() {
-		try {
+		if (false) try {
 			context.unregisterReceiver(mPairingRequestBroadcastReceiver);
 		} catch (final Exception e) {
 			// The receiver must have been already unregistered before.
