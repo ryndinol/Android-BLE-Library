@@ -32,6 +32,3 @@ tasks.register('clean', Delete) {
     delete rootProject.layout.buildDirectory
 }
 
-// Maven Central publishing
-apply plugin: 'io.github.gradle-nexus.publish-plugin'
-apply from: rootProject.file('gradle/publish-root.gradle')
